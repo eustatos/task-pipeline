@@ -1,0 +1,151 @@
+{
+  "$defs": {
+    "AssignedRole": {
+      "description": "Agent role this task is primarily assigned to.",
+      "enum": [
+        "executor",
+        "planner",
+        "reviewer",
+        "any"
+      ],
+      "title": "AssignedRole",
+      "type": "string"
+    },
+    "EstimatedComplexity": {
+      "enum": [
+        "simple",
+        "medium",
+        "complex"
+      ],
+      "title": "EstimatedComplexity",
+      "type": "string"
+    },
+    "TaskPriority": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ],
+      "title": "TaskPriority",
+      "type": "string"
+    },
+    "TaskStatus": {
+      "enum": [
+        "todo",
+        "in-progress",
+        "in-review",
+        "done",
+        "blocked",
+        "cancelled"
+      ],
+      "title": "TaskStatus",
+      "type": "string"
+    }
+  },
+  "$id": "https://backlog-tool.dev/schemas/task-frontmatter.json",
+  "description": "YAML frontmatter schema for backlog task files.",
+  "properties": {
+    "id": {
+      "description": "Unique task identifier. Format: TASK-NNN or semantic slug.",
+      "examples": [
+        "TASK-042",
+        "auth-jwt-rotation"
+      ],
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/TaskStatus",
+      "default": "todo",
+      "description": "Current task lifecycle state."
+    },
+    "priority": {
+      "$ref": "#/$defs/TaskPriority",
+      "default": "medium",
+      "description": "Execution priority within the backlog."
+    },
+    "depends_on": {
+      "description": "List of task IDs that must complete before this task starts. Defines edges in the execution DAG.",
+      "examples": [
+        [
+          "TASK-038",
+          "TASK-039"
+        ]
+      ],
+      "items": {
+        "type": "string"
+      },
+      "title": "Depends On",
+      "type": "array"
+    },
+    "tags": {
+      "description": "Categorization tags for filtering and grouping.",
+      "examples": [
+        [
+          "auth",
+          "api",
+          "security"
+        ]
+      ],
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20,
+      "title": "Tags",
+      "type": "array"
+    },
+    "assigned_role": {
+      "$ref": "#/$defs/AssignedRole",
+      "default": "any",
+      "description": "Preferred agent role for this task. 'any' = orchestrator decides."
+    },
+    "requires_approval": {
+      "default": false,
+      "description": "If True, orchestrator inserts an interrupt/approval gate before executing this task. See ADR-004.",
+      "title": "Requires Approval",
+      "type": "boolean"
+    },
+    "estimated_complexity": {
+      "$ref": "#/$defs/EstimatedComplexity",
+      "default": "medium",
+      "description": "Expected token cost tier. Influences model selection (ADR-001)."
+    },
+    "created_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "ISO 8601 creation timestamp. Auto-set by CLI if missing.",
+      "examples": [
+        "2026-09-25T10:30:00Z"
+      ],
+      "title": "Created At"
+    },
+    "updated_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "ISO 8601 last modification timestamp.",
+      "title": "Updated At"
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "title": "Task Frontmatter",
+  "type": "object"
+}

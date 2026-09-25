@@ -1,0 +1,35 @@
+# ── Python ───────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ── Virtual environment ──────────────────────────
+.venv/
+venv/
+
+# ── IDE ──────────────────────────────────────────
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Runtime state ────────────────────────────────
+.backlog/
+*.log
+
+# ── Environment secrets ─────────────────────────
+.env
+.env.local
+*.pem

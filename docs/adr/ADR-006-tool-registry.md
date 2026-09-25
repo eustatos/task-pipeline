@@ -7,7 +7,7 @@
 ## Context
 
 The core executes a set of tools (apply_diff, run_tests, get_repo_map, checkpoint, etc.) that are:
-- Invoked by different agent roles (Architect, Executor, Reviewer)
+- Invoked by different agent roles (Planner, Executor, Reviewer)
 - Stateless and deterministic
 - Subject to strict input/output contracts
 - Required to be idempotent or reversible
@@ -44,7 +44,7 @@ class ToolRegistry:
 
 | Role | Accessible Tools |
 |------|----------------|
-| Architect | get_repo_map, analyze, plan |
+| Planner | get_repo_map, analyze, plan |
 | Executor | apply_diff, run_tests, checkpoint, read_file |
 | Reviewer | read_file, run_tests, get_repo_map |
 

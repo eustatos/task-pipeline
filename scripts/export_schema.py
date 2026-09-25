@@ -8,7 +8,7 @@ Usage:
 
 VS Code setup: Add to .vscode/settings.json:
     "yaml.schemas": {
-        "./schemas/task-frontmatter.schema.json": ["tasks/*.md"]
+        "./schemas/task-frontmatter.schema.json": ["backlog/**/*.md"]
     }
 """
 

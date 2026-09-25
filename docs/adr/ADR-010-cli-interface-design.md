@@ -26,7 +26,7 @@
 
 ### Принцип: Zero-Config Start
 
-`backlog run` без аргументов работает, если CWD находится внутри проекта с `tasks/`. Все пути автодетектятся. Все параметры имеют sensible defaults.
+`backlog run` без аргументов работает, если CWD находится внутри проекта с `backlog/`. Все пути автодетектятся. Все параметры имеют sensible defaults.
 
 ### Команды
 
@@ -34,7 +34,7 @@
 |---------|-----------|---------------|
 | `backlog run [FILTER]` | Выполнение бэклога | Нет |
 | `backlog init [DIR]` | Инициализация проекта | Нет (default: CWD) |
-| `backlog lint [PATH...]` | Валидация задач | Нет (default: tasks/) |
+| `backlog lint [PATH...]` | Валидация задач | Нет (default: backlog/) |
 | `backlog status` | Инспекция графа/прогресса | Нет |
 | `backlog resume [TASK_ID]` | Явный resume после прерывания | Нет (auto-resume по умолчанию) |
 | `backlog schema export` | Экспорт JSON Schema для IDE | Нет |
@@ -52,7 +52,7 @@ Fallback: CWD если ничего не найдено.
 | Путь | Default | Override |
 |------|---------|----------|
 | Project root | Auto-detect | `--project-dir` |
-| Tasks directory | `<root>/tasks/` | `--tasks-dir` |
+| Tasks directory | `<root>/backlog/` | `--tasks-dir` |
 | State file | `<root>/.backlog/state.json` | Не overrideable (by design) |
 | Log files | `<root>/.backlog/logs/<ts>.jsonl` | `--log-file` |
 | User config | `~/.config/backlog/config.yml` | `BACKLOG_CONFIG` env var |
@@ -115,7 +115,7 @@ backlog fixtures list                       # List available fixtures
 | Required `--project-dir` and `--tasks-dir` | Убивает zero-config start и dogfooding |
 | Interactive wizard при init | Блокирует CI. Non-interactive by default. |
 | Web UI as primary interface | Противоречит ADR-003. CLI-first. |
-| Single `--model` flag | Нарушает ADR-001 (Architect/Executor split) |
+| Single `--model` flag | Нарушает ADR-001 (Planner/Executor split) |
 | Global state outside project | Projects must be isolated. All state under `.backlog/` |
 | Subcommands per tool | CLI = orchestration, not tool registry |
 | Config via env vars only | No project-level committed config. Need `.backlog.yml` |

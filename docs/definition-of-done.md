@@ -16,7 +16,7 @@ This document defines measurable, automatable readiness criteria for the core. E
 |---|-----------|-------------------|-----------|-----------|
 | C0.1 | All tools have Pydantic schemas with validation | `mypy --strict` + schema generation test | 100% tools typed, 0 mypy errors | ADR-006 |
 | C0.2 | Tool Registry registers/removes tools atomically | Unit test: concurrent register/unregister | Zero race conditions, zero partial state | ADR-006 |
-| C0.3 | Role-based filtering works correctly | Integration test: Architect sees planning tools, Executor — editing tools | 0 cross-role tool leaks | ADR-001, ADR-006 |
+| C0.3 | Role-based filtering works correctly | Integration test: Planner sees planning tools, Executor — editing tools | 0 cross-role tool leaks | ADR-001, ADR-006 |
 | C0.4 | State schema is versioned and migratable | Migration test: v1→v2 state conversion | 100% backward compatibility | ADR-004 |
 | C0.5 | Event stream is append-only and immutable | Property test: no mutation after write | Zero violations across 10K events | F11 |
 | C0.6 | Configuration validated at startup | Pydantic Settings validation test | Fail-fast with clear error message | ADR-005 |

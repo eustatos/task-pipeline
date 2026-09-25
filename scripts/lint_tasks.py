@@ -9,8 +9,8 @@ Validates:
 4. No prohibited patterns (pseudo-code, vague attributes)
 
 Usage:
-    python scripts/lint_tasks.py tasks/TASK-042.md
-    python scripts/lint_tasks.py tasks/          # lint all
+    python scripts/lint_tasks.py backlog/T1.1.1.md
+    python scripts/lint_tasks.py backlog/          # lint all
 """
 
 import re
@@ -140,7 +140,7 @@ def lint_task(path: Path) -> list[str]:
 
 
 def main() -> None:
-    targets = sys.argv[1:] if len(sys.argv) > 1 else ["tasks/"]
+    targets = sys.argv[1:] if len(sys.argv) > 1 else ["backlog/"]
     all_errors: dict[str, list[str]] = {}
 
     for target in targets:

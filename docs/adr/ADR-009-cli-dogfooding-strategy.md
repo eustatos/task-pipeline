@@ -30,7 +30,7 @@ CLI — единственный primary interface для MVP. TUI (Textual) д�
 
 | Requirement | CLI | Web UI (отклонён) |
 |-------------|-----|-------------------|
-| CI/CD интеграция | `backlog run tasks/` в pipeline | Невозможно без headless mode |
+| CI/CD интеграция | `backlog run` в pipeline | Невозможно без headless mode |
 | Headless execution | Серверы, контейнеры, SSH | Требует браузера |
 | Composability | pipe, redirect, xargs, cron | Изолированный процесс |
 | Token economy | Нет overhead рендеринга UI | WebSocket + state sync |
@@ -48,7 +48,7 @@ CLI — единственный primary interface для MVP. TUI (Textual) д�
 - **Доказательство ценности:** «Мы используем свой инструмент для разработки» — сильнейший сигнал доверия
 - **Feedback loop:** Каждая задача в собственном бэклоге = тестовый кейс для ядра
 - **Экономия:** ROI начинается немедленно
-- **Documentation as code:** Задачи в `tasks/` = живая документация возможностей
+- **Documentation as code:** Задачи в `backlog/` = живая документация возможностей
 
 ### 3. Dogfooding Phases
 

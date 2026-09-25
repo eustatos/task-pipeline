@@ -38,7 +38,7 @@
 - Fresh environment per test (no shared mutable state)
 - Creation time < 1 sec (unit), < 5 sec (integration with Docker)
 - Auto-cleanup after test completion
-- Minimal project structure: `tasks/`, `.backlog/`, `src/`, language-specific config
+- Minimal project structure: `backlog/`, `.backlog/`, `src/`, language-specific config
 - Seed data через pytest fixtures, не через копирование больших деревьев
 
 **Когда использовать:**
@@ -63,7 +63,7 @@
 fixtures/
 ├── README.md                    # Usage guide
 ├── python-webapp/               # Python/NestJS-like, 15 tasks
-│   ├── tasks/                   # Ready-to-run backlog
+│   ├── backlog/                 # Ready-to-run backlog
 │   ├── src/                     # Realistic source code
 │   ├── tests/                   # Existing test suite
 │   ├── pyproject.toml

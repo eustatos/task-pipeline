@@ -21,7 +21,7 @@
 - [ ] **T1.1.2** Implement `ToolRegistry` with atomic `register()` / `unregister()`
 - [ ] **T1.1.3** Implement role-based `get(tool_name, role)` and `list_for_role(role)`
 - [ ] **T1.1.4** Write concurrent register/unregister test (zero race conditions)
-- [ ] **T1.1.5** Write role-based filtering integration test (Architect/Executor/Reviewer isolation)
+- [ ] **T1.1.5** Write role-based filtering integration test (Planner/Executor/Reviewer isolation)
 
 ### 1.2 State Schema & Versioning
 
@@ -48,6 +48,17 @@
 - [ ] **T1.5.1** Set up CI pipeline that runs all Stage 1 tests as a merge gate
 - [ ] **T1.5.2** Add `mypy --strict` check for all tool modules
 - [ ] **T1.5.3** Add schema generation test (validate all tools produce valid JSON Schema)
+
+### 1.6 CLI Bootstrap
+
+> **Purpose:** Minimal CLI surface for dogfooding (ADR-009 Phase 0).
+> `backlog run` (full orchestration) arrives in Stage 2 — this section covers the
+> commands needed to bootstrap the project and validate tasks.
+
+- [ ] **T1.6.0** CLI entry point: Typer app + `console_scripts` in pyproject.toml (`backlog` command)
+- [ ] **T1.6.1** `backlog init [DIR]`: detect project root, create `backlog/` + `.backlog/` scaffolding
+- [ ] **T1.6.2** `backlog lint [PATH...]`: wrap `scripts/lint_tasks.py` as CLI subcommand (default: `backlog/`)
+- [ ] **T1.6.3** `backlog status`: parse `backlog/` frontmatter, display task graph summary (counts by status/priority)
 
 ---
 

@@ -3,7 +3,7 @@
 - **Статус:** Принято
 - **Дата:** 2026-09-25
 - **Связанные документы:**
-  - ADR-001 (Archtect/Executor split)
+  - ADR-001 (Planner/Executor split)
   - [ADR-006](./ADR-006-tool-registry.md)
   - [ADR-007](./ADR-007-hybrid-orchestration.md)
 
@@ -51,7 +51,7 @@ Markdown body проверяется структурным линтером (н
 
 | Роль | Подаваемые секции | Экономия токенов |
 |------|------------------|-----------------|
-| Planner (Architect) | Frontmatter + Objective + Not Included + depends_on | ~70% vs full task |
+| Planner | Frontmatter + Objective + Not Included + depends_on | ~70% vs full task |
 | Executor | Полная задача (lazy-loading AC/Contracts по запросу) | Progressive disclosure |
 | Reviewer | AC table + Boundaries + Test Plan | ~60% vs full task |
 
